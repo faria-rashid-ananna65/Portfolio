@@ -1,15 +1,15 @@
 import { Helmet } from "react-helmet-async";
 
 const SEO = ({
-  title = "Developer Portfolio - Full Stack Web Developer",
-  description = "Professional developer portfolio showcasing projects, skills, and experience in modern web development technologies.",
-  keywords = "portfolio, web developer, frontend developer, React, JavaScript, full stack, MERN",
+  title = "Faria WebDev - Full Stack Web Developer",
+  description = "Professional developer portfolio by Faria WebDev showcasing projects, skills, and experience in modern web development technologies.",
+  keywords = "Faria WebDev, web developer, frontend developer, React, JavaScript, full stack, MERN",
   url,
   image,
   type = "website",
 }) => {
-  const siteUrl = (url || process.env.REACT_APP_SITE_URL || "https://yourdomain.com").replace(/\/$/, "");
-  const ogImage = image || process.env.REACT_APP_OG_IMAGE || "https://yourdomain.com/og-image.png";
+  const siteUrl = (url || process.env.REACT_APP_SITE_URL || "").replace(/\/$/, "");
+  const ogImage = image || process.env.REACT_APP_OG_IMAGE || "";
 
   return (
     <Helmet>

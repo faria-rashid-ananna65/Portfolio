@@ -1,6 +1,6 @@
-# MERN Developer Portfolio
+# Faria WebDev - MERN Developer Portfolio
 
-A full-stack developer portfolio built with the MERN stack (MongoDB, Express.js, React.js, Node.js). Features a complete admin dashboard with CMS capabilities, real-time notifications, and premium UI/UX.
+A full-stack developer portfolio by Faria WebDev built with the MERN stack (MongoDB, Express.js, React.js, Node.js). Features a complete admin dashboard with CMS capabilities, real-time notifications, and premium UI/UX.
 
 ## Tech Stack
 

@@ -49,7 +49,7 @@ const ProjectDetails = () => {
       <SEO
         title={`${project.title} - Project Details`}
         description={project.shortDescription || project.description?.substring(0, 160) || `Details about ${project.title} project`}
-        keywords={project.techStack?.join(", ") || "web project, developer portfolio"}
+        keywords={project.techStack?.join(", ") || "web project, Faria WebDev"}
         image={project.images?.[0]}
         type="article"
       />

@@ -3,9 +3,6 @@ import { motion } from "framer-motion";
 import {
   FaGithub,
   FaLinkedin,
-  FaFacebook,
-  FaTwitter,
-  FaInstagram,
 } from "react-icons/fa";
 import { FiArrowUp } from "react-icons/fi";
 
@@ -20,7 +17,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
             <h3 className="text-2xl font-bold text-white mb-4 gradient-text">
-              Portfolio
+              Faria WebDev
             </h3>
             <p className="text-gray-400 leading-relaxed">
               Full-stack developer passionate about building beautiful and
@@ -49,7 +46,7 @@ const Footer = () => {
               Connect
             </h4>
             <div className="flex gap-4">
-              {[FaGithub, FaLinkedin, FaFacebook, FaTwitter, FaInstagram].map(
+              {[FaGithub, FaLinkedin].map(
                 (Icon, i) => (
                   <a
                     key={i}
@@ -64,7 +61,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} Portfolio. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Faria WebDev. All rights reserved.</p>
         </div>
       </div>
 

@@ -17,7 +17,7 @@ const ProfileManager = () => {
     profileImage: "",
     coverImage: "",
     resume: "",
-    socialLinks: { github: "", linkedin: "", facebook: "", twitter: "", instagram: "", youtube: "" },
+    socialLinks: { github: "", linkedin: "" },
     education: [],
     softSkills: [],
     languages: [],
@@ -167,24 +167,6 @@ const ProfileManager = () => {
             value={profile.socialLinks.linkedin}
             onChange={(e) =>
               setProfile({ ...profile, socialLinks: { ...profile.socialLinks, linkedin: e.target.value } })
-            }
-            className="input-field"
-          />
-          <input
-            type="url"
-            placeholder="Facebook URL"
-            value={profile.socialLinks.facebook}
-            onChange={(e) =>
-              setProfile({ ...profile, socialLinks: { ...profile.socialLinks, facebook: e.target.value } })
-            }
-            className="input-field"
-          />
-          <input
-            type="url"
-            placeholder="Twitter URL"
-            value={profile.socialLinks.twitter}
-            onChange={(e) =>
-              setProfile({ ...profile, socialLinks: { ...profile.socialLinks, twitter: e.target.value } })
             }
             className="input-field"
           />

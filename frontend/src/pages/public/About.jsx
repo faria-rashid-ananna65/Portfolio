@@ -38,7 +38,7 @@ const About = () => {
       <SEO
         title={`About ${profile?.name || "Developer"} - Biography & Education`}
         description={`Learn about ${profile?.name || "developer"}'s background, education, skills, and career objectives. ${profile?.bio?.substring(0, 100) || ""}`}
-        keywords={`about ${profile?.name || "developer"}, biography, education, skills, career, developer portfolio`}
+        keywords={`about ${profile?.name || "developer"}, biography, education, skills, career, Faria WebDev`}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle title="About Me" subtitle="Get to know me better" />

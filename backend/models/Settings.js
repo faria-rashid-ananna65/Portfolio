@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const settingsSchema = new mongoose.Schema(
   {
-    websiteName: { type: String, default: "Portfolio" },
+    websiteName: { type: String, default: "Faria WebDev" },
     logo: { type: String, default: "" },
     favicon: { type: String, default: "" },
     themeColor: { type: String, default: "#6366f1" },

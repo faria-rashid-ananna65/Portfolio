@@ -8,8 +8,6 @@ import {
   FiArrowDown,
 } from "react-icons/fi";
 import {
-  FaFacebook,
-  FaTwitter,
   FaGithub,
   FaLinkedin,
 } from "react-icons/fa";
@@ -200,14 +198,14 @@ const Home = () => {
     { label: "Happy Clients", value: profile?.stats?.happyClients || 0 },
   ];
 
-  const socialIcons = { github: FaGithub, linkedin: FaLinkedin, facebook: FaFacebook, twitter: FaTwitter };
+  const socialIcons = { github: FaGithub, linkedin: FaLinkedin };
 
   return (
     <div>
       <SEO
-        title={`${profile?.name || "Developer"} - Full Stack Web Developer Portfolio`}
-        description={`${profile?.shortIntro || "Professional developer portfolio showcasing projects, skills, and experience in modern web development."} ${profile?.bio?.substring(0, 150) || ""}`}
-        keywords="portfolio, web developer, frontend developer, React, JavaScript, full stack, MERN, developer"
+        title={`${profile?.name || "Developer"} - Faria WebDev | Full Stack Developer`}
+        description={`${profile?.shortIntro || "Professional developer portfolio by Faria WebDev showcasing projects, skills, and experience in modern web development."} ${profile?.bio?.substring(0, 150) || ""}`}
+        keywords="Faria WebDev, web developer, frontend developer, React, JavaScript, full stack, MERN, developer"
         type="profile"
       />
       {/* Hero */}

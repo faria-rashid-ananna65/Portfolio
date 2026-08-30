@@ -16,10 +16,6 @@ const profileSchema = new mongoose.Schema(
     socialLinks: {
       github: { type: String, default: "" },
       linkedin: { type: String, default: "" },
-      facebook: { type: String, default: "" },
-      twitter: { type: String, default: "" },
-      instagram: { type: String, default: "" },
-      youtube: { type: String, default: "" },
     },
     education: [
       {

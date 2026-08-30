@@ -39,7 +39,7 @@ const AdminLogin = () => {
         <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-8">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold gradient-text">Admin Panel</h1>
-            <p className="text-gray-500 mt-2">Sign in to manage your portfolio</p>
+            <p className="text-gray-500 mt-2">Sign in to manage your Faria WebDev site</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">

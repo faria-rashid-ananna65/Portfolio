@@ -47,9 +47,9 @@ const Projects = () => {
   return (
     <div className="min-h-screen pt-24 pb-20">
       <SEO
-        title="Projects - Web Development Portfolio"
-        description="Browse through my portfolio of web development projects including React, MERN stack, and full stack applications."
-        keywords="web development projects, React projects, MERN stack, portfolio projects, full stack applications"
+        title="Projects - Faria WebDev"
+        description="Browse through projects by Faria WebDev including React, MERN stack, and full stack applications."
+        keywords="Faria WebDev projects, React projects, MERN stack, web development, full stack applications"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
