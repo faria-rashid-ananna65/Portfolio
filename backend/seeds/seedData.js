@@ -16,8 +16,8 @@ const seedData = async () => {
     phone: "",
     location: "",
     socialLinks: {
-      github: "",
-      linkedin: "",
+      github: "https://github.com/faria-rashid-ananna65",
+      linkedin: "https://www.linkedin.com/in/faria-rashid-ananna-a06839335",
     },
     education: [],
     softSkills: [
