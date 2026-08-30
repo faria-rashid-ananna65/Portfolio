@@ -4,6 +4,7 @@ import { FiPlus, FiEdit2, FiTrash2, FiX, FiExternalLink, FiGithub } from "react-
 import toast from "react-hot-toast";
 import API from "../../services/api";
 import { useCrud } from "../../hooks/useCrud";
+import FileUpload from "../../components/admin/FileUpload";
 
 const ProjectManager = () => {
   const [projects, setProjects] = useState([]);
@@ -173,7 +174,15 @@ const ProjectManager = () => {
                 <input type="text" placeholder="Project Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="input-field" required />
                 <input type="text" placeholder="Short Description" value={form.shortDescription} onChange={(e) => setForm({ ...form, shortDescription: e.target.value })} className="input-field" />
                 <textarea placeholder="Full Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className="textarea-field" rows={4} />
-                <textarea placeholder="Image URLs (one per line)" value={form.images?.join("\n")} onChange={(e) => setForm({ ...form, images: e.target.value })} className="textarea-field" rows={3} />
+                <FileUpload
+                  value={typeof form.images === "string" ? form.images : form.images?.[0] || ""}
+                  onChange={(url) => setForm({ ...form, images: url ? [url] : [] })}
+                  folder="portfolio/projects"
+                  label="Project Image"
+                />
+                {form.images?.[0] && (
+                  <input type="text" placeholder="Or paste additional image URLs (one per line)" value={form.images?.slice(1).join("\n")} onChange={(e) => setForm({ ...form, images: [form.images[0], ...e.target.value.split("\n").filter(Boolean)] })} className="textarea-field" rows={2} />
+                )}
                 <input type="text" placeholder="Tech Stack (comma separated)" value={typeof form.techStack === "string" ? form.techStack : form.techStack?.join(", ")} onChange={(e) => setForm({ ...form, techStack: e.target.value })} className="input-field" />
                 <select value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} className="input-field">
                   {categories.map((cat) => <option key={cat} value={cat}>{cat}</option>)}

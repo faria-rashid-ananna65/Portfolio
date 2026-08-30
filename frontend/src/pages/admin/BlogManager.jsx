@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiPlus, FiEdit2, FiTrash2, FiX, FiEye, FiEyeOff } from "react-icons/fi";
 import API from "../../services/api";
 import { useCrud } from "../../hooks/useCrud";
+import FileUpload from "../../components/admin/FileUpload";
 
 const BlogManager = () => {
   const [blogs, setBlogs] = useState([]);
@@ -105,7 +106,12 @@ const BlogManager = () => {
                 <input type="text" placeholder="Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="input-field" required />
                 <textarea placeholder="Content (HTML supported)" value={form.content} onChange={(e) => setForm({ ...form, content: e.target.value })} className="textarea-field" rows={10} />
                 <textarea placeholder="Excerpt" value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })} className="textarea-field" rows={3} />
-                <input type="url" placeholder="Cover Image URL" value={form.coverImage} onChange={(e) => setForm({ ...form, coverImage: e.target.value })} className="input-field" />
+                <FileUpload
+                  value={form.coverImage}
+                  onChange={(url) => setForm({ ...form, coverImage: url })}
+                  folder="portfolio/blogs"
+                  label="Cover Image"
+                />
                 <input type="text" placeholder="Category" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} className="input-field" />
                 <input type="text" placeholder="Tags (comma separated)" value={typeof form.tags === "string" ? form.tags : form.tags?.join(", ")} onChange={(e) => setForm({ ...form, tags: e.target.value })} className="input-field" />
                 <div className="flex gap-4">

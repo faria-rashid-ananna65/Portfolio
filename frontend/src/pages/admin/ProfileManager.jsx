@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FiSave, FiUpload } from "react-icons/fi";
 import toast from "react-hot-toast";
 import API from "../../services/api";
+import FileUpload from "../../components/admin/FileUpload";
 
 const ProfileManager = () => {
   const [profile, setProfile] = useState({
@@ -175,22 +176,17 @@ const ProfileManager = () => {
         {/* Media */}
         <div className="card p-6 space-y-4">
           <h2 className="text-lg font-semibold">Media</h2>
-          <input
-            type="url"
-            placeholder="Profile Image URL"
+          <FileUpload
             value={profile.profileImage}
-            onChange={(e) => setProfile({ ...profile, profileImage: e.target.value })}
-            className="input-field"
+            onChange={(url) => setProfile({ ...profile, profileImage: url })}
+            folder="portfolio/profile"
+            label="Profile Image"
           />
-          {profile.profileImage && (
-            <img src={profile.profileImage} alt="Profile" className="w-20 h-20 rounded-full object-cover" />
-          )}
-          <input
-            type="url"
-            placeholder="Cover Image URL"
+          <FileUpload
             value={profile.coverImage}
-            onChange={(e) => setProfile({ ...profile, coverImage: e.target.value })}
-            className="input-field"
+            onChange={(url) => setProfile({ ...profile, coverImage: url })}
+            folder="portfolio/profile"
+            label="Cover Image"
           />
           <input
             type="url"

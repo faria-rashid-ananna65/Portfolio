@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FiSave } from "react-icons/fi";
 import toast from "react-hot-toast";
 import API from "../../services/api";
+import FileUpload from "../../components/admin/FileUpload";
 
 const SettingsManager = () => {
   const [settings, setSettings] = useState({
@@ -63,19 +64,17 @@ const SettingsManager = () => {
             onChange={(e) => setSettings({ ...settings, websiteName: e.target.value })}
             className="input-field"
           />
-          <input
-            type="url"
-            placeholder="Logo URL"
+          <FileUpload
             value={settings.logo}
-            onChange={(e) => setSettings({ ...settings, logo: e.target.value })}
-            className="input-field"
+            onChange={(url) => setSettings({ ...settings, logo: url })}
+            folder="portfolio/settings"
+            label="Logo"
           />
-          <input
-            type="url"
-            placeholder="Favicon URL"
+          <FileUpload
             value={settings.favicon}
-            onChange={(e) => setSettings({ ...settings, favicon: e.target.value })}
-            className="input-field"
+            onChange={(url) => setSettings({ ...settings, favicon: url })}
+            folder="portfolio/settings"
+            label="Favicon"
           />
           <div>
             <label className="block text-sm font-medium mb-2">Theme Color</label>
@@ -128,12 +127,11 @@ const SettingsManager = () => {
             }
             className="input-field"
           />
-          <input
-            type="url"
-            placeholder="Open Graph Image URL"
+          <FileUpload
             value={settings.ogImage}
-            onChange={(e) => setSettings({ ...settings, ogImage: e.target.value })}
-            className="input-field"
+            onChange={(url) => setSettings({ ...settings, ogImage: url })}
+            folder="portfolio/settings"
+            label="Open Graph Image"
           />
           <input
             type="text"

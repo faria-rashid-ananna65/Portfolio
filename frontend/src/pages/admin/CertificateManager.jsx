@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiPlus, FiEdit2, FiTrash2, FiX } from "react-icons/fi";
 import API from "../../services/api";
 import { useCrud } from "../../hooks/useCrud";
+import FileUpload from "../../components/admin/FileUpload";
 
 const CertificateManager = () => {
   const [certs, setCerts] = useState([]);
@@ -91,7 +92,12 @@ const CertificateManager = () => {
                 <input type="text" placeholder="Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="input-field" required />
                 <input type="text" placeholder="Organization" value={form.organization} onChange={(e) => setForm({ ...form, organization: e.target.value })} className="input-field" />
                 <input type="text" placeholder="Issue Date" value={form.issueDate} onChange={(e) => setForm({ ...form, issueDate: e.target.value })} className="input-field" />
-                <input type="url" placeholder="Image URL" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} className="input-field" />
+                <FileUpload
+                  value={form.image}
+                  onChange={(url) => setForm({ ...form, image: url })}
+                  folder="portfolio/certificates"
+                  label="Certificate Image"
+                />
                 <input type="url" placeholder="PDF URL" value={form.pdfUrl} onChange={(e) => setForm({ ...form, pdfUrl: e.target.value })} className="input-field" />
                 <input type="url" placeholder="Credential URL" value={form.credentialUrl} onChange={(e) => setForm({ ...form, credentialUrl: e.target.value })} className="input-field" />
                 <button type="submit" disabled={crudLoading} className="btn-primary w-full">{crudLoading ? "Saving..." : "Save"}</button>
