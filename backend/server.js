@@ -38,13 +38,10 @@ connectDB().then(async () => {
       console.log("Admin account created automatically");
     }
 
-    const profileExists = await Profile.findOne();
-    if (!profileExists) {
-      console.log("No profile found, seeding default data...");
-      const { default: seedData } = await import("./seeds/seedData.js");
-      await seedData();
-      console.log("Default data seeded!");
-    }
+    console.log("Seeding portfolio data...");
+    const { default: seedData } = await import("./seeds/seedData.js");
+    await seedData();
+    console.log("Portfolio data seeded!");
   } catch (err) {
     console.error("Auto-seed error:", err.message);
   }
