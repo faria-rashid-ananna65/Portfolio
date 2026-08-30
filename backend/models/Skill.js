@@ -8,7 +8,7 @@ const skillSchema = new mongoose.Schema(
     category: {
       type: String,
       required: true,
-      enum: ["Frontend", "Backend", "Database", "Authentication", "Tools", "Other"],
+      enum: ["Frontend", "Backend", "Database", "Database & Services", "Basic Knowledge", "Authentication", "Tools", "Other"],
     },
     order: { type: Number, default: 0 },
   },

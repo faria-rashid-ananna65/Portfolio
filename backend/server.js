@@ -8,6 +8,10 @@ import dotenv from "dotenv";
 import { Server } from "socket.io";
 import connectDB from "./config/db.js";
 import Admin from "./models/Admin.js";
+import Profile from "./models/Profile.js";
+import Skill from "./models/Skill.js";
+import Experience from "./models/Experience.js";
+import Blog from "./models/Blog.js";
 
 import authRoutes from "./routes/auth.js";
 import profileRoutes from "./routes/profile.js";
@@ -32,6 +36,14 @@ connectDB().then(async () => {
         password: process.env.ADMIN_PASSWORD,
       });
       console.log("Admin account created automatically");
+    }
+
+    const profileExists = await Profile.findOne();
+    if (!profileExists) {
+      console.log("No profile found, seeding default data...");
+      const { default: seedData } = await import("./seeds/seedData.js");
+      await seedData();
+      console.log("Default data seeded!");
     }
   } catch (err) {
     console.error("Auto-seed error:", err.message);
