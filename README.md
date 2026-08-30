@@ -44,35 +44,8 @@ A full-stack developer portfolio by Faria WebDev built with the MERN stack (Mong
 - MongoDB (local or Atlas)
 - ImageKit account (optional, for image uploads)
 
-### Installation
 
-```bash
-# Clone repository
-git clone <repo-url>
-cd portfolio
 
-# Backend setup
-cd backend
-npm install
-cp .env.example .env
-# Edit .env with your MongoDB URI and JWT secret
-
-# Seed default admin
-npm run seed
-
-# Start backend
-npm run dev
-
-# Frontend setup (new terminal)
-cd frontend
-npm install
-npm start
-```
-
-### Default Admin Credentials
-```
-Email: fariarashid76@gmail.com
-Password: faria123
 ```
 
 ### Environment Variables
@@ -89,11 +62,7 @@ IMAGEKIT_URL_ENDPOINT=your_url
 CLIENT_URL=http://localhost:3000
 ```
 
-**Frontend (.env)**
-```
-REACT_APP_API_URL=http://localhost:5000/api
-REACT_APP_SOCKET_URL=http://localhost:5000
-```
+
 
 ## API Endpoints
 
