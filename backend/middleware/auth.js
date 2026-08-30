@@ -4,13 +4,13 @@ import Admin from "../models/Admin.js";
 const protect = async (req, res, next) => {
   let token;
 
-  if (req.cookies && req.cookies.token) {
-    token = req.cookies.token;
-  }
-
   const authHeader = req.headers.authorization;
   if (authHeader && authHeader.startsWith("Bearer ")) {
     token = authHeader.split(" ")[1];
+  }
+
+  if (!token && req.cookies && req.cookies.token) {
+    token = req.cookies.token;
   }
 
   if (!token) {

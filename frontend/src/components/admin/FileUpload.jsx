@@ -10,6 +10,10 @@ const FileUpload = ({ value, onChange, folder = "portfolio", accept = "image/*",
 
   const uploadFile = async (file) => {
     if (!file) return;
+    if (file.size > 20 * 1024 * 1024) {
+      toast.error("File too large. Max size: 20MB");
+      return;
+    }
     const formData = new FormData();
     formData.append("file", file);
     formData.append("folder", folder);

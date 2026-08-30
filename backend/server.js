@@ -100,6 +100,9 @@ app.use((err, req, res, next) => {
     }
     return res.status(400).json({ success: false, message: err.message });
   }
+  if (err.message && err.message.includes("File type not supported")) {
+    return res.status(400).json({ success: false, message: err.message });
+  }
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   res.status(statusCode).json({
     success: false,

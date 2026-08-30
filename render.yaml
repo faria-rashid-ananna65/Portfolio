@@ -11,7 +11,7 @@ services:
       - key: MONGODB_URI
         sync: false
       - key: JWT_SECRET
-        generateValue: true
+        sync: false
       - key: JWT_EXPIRE
         value: 7d
       - key: ADMIN_EMAIL
