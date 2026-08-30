@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import { Server } from "socket.io";
 import connectDB from "./config/db.js";
+import Admin from "./models/Admin.js";
 
 import authRoutes from "./routes/auth.js";
 import profileRoutes from "./routes/profile.js";
@@ -22,7 +23,20 @@ import uploadRoutes from "./routes/upload.js";
 import dashboardRoutes from "./routes/dashboard.js";
 
 dotenv.config();
-connectDB();
+connectDB().then(async () => {
+  try {
+    const adminExists = await Admin.findOne({ email: process.env.ADMIN_EMAIL });
+    if (!adminExists) {
+      await Admin.create({
+        email: process.env.ADMIN_EMAIL,
+        password: process.env.ADMIN_PASSWORD,
+      });
+      console.log("Admin account created automatically");
+    }
+  } catch (err) {
+    console.error("Auto-seed error:", err.message);
+  }
+});
 
 const app = express();
 const server = http.createServer(app);
