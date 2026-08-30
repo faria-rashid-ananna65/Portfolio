@@ -5,11 +5,32 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import { FiArrowUp } from "react-icons/fi";
+import { useEffect, useState } from "react";
+import API from "../../services/api";
 
 const Footer = () => {
+  const [socialLinks, setSocialLinks] = useState({ github: "#", linkedin: "#" });
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const { data } = await API.get("/profile");
+        if (data.data?.socialLinks) {
+          setSocialLinks(data.data.socialLinks);
+        }
+      } catch {}
+    };
+    fetchProfile();
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const links = [
+    { icon: FaGithub, url: socialLinks.github, label: "GitHub" },
+    { icon: FaLinkedin, url: socialLinks.linkedin, label: "LinkedIn" },
+  ];
 
   return (
     <footer className="bg-gray-900 dark:bg-black text-gray-300 pt-16 pb-8 relative">
@@ -46,17 +67,17 @@ const Footer = () => {
               Connect
             </h4>
             <div className="flex gap-4">
-              {[FaGithub, FaLinkedin].map(
-                (Icon, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    className="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-600 hover:text-white transition-all"
-                  >
-                    <Icon size={18} />
-                  </a>
-                )
-              )}
+              {links.map(({ icon: Icon, url, label }) => (
+                <a
+                  key={label}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-600 hover:text-white transition-all"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
         </div>
