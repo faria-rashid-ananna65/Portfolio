@@ -54,7 +54,7 @@ const seedData = async () => {
     stats: {
       projectsCompleted: 5,
       technologies: 15,
-      yearsLearning: 2,
+      yearsLearning: 1,
       happyClients: 0,
     },
   });
