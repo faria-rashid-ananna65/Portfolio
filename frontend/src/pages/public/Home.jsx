@@ -98,21 +98,24 @@ const Home = () => {
         }
       );
 
-      gsap.fromTo(
-        ".project-card",
-        { opacity: 0, y: 60 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.15,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: projectsRef.current,
-            start: "top 80%",
-          },
-        }
-      );
+      const projectCards = gsap.utils.toArray(".project-card");
+      if (projectCards.length) {
+        gsap.fromTo(
+          projectCards,
+          { opacity: 0, y: 60 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: projectsRef.current,
+              start: "top 80%",
+            },
+          }
+        );
+      }
 
       gsap.fromTo(
         ".skill-item",
@@ -130,21 +133,24 @@ const Home = () => {
         }
       );
 
-      gsap.fromTo(
-        ".testimonial-card",
-        { opacity: 0, x: -50 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.6,
-          stagger: 0.15,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: testimonialsRef.current,
-            start: "top 80%",
-          },
-        }
-      );
+      const testimonialCards = gsap.utils.toArray(".testimonial-card");
+      if (testimonialCards.length) {
+        gsap.fromTo(
+          testimonialCards,
+          { opacity: 0, x: -50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: testimonialsRef.current,
+              start: "top 80%",
+            },
+          }
+        );
+      }
     });
 
     return () => ctx.revert();
@@ -256,7 +262,7 @@ const Home = () => {
             <div className="hero-image flex justify-center">
               <div className="relative">
                 <div className="w-72 h-72 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 p-1 animate-glow">
-                  <img src={profile?.profileImage || "https://via.placeholder.com/400"} alt={profile?.name || "Profile"} className="w-full h-full rounded-full object-cover" />
+                  <img src={profile?.profileImage || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%236366f1' width='400' height='400'/%3E%3Ctext fill='%23fff' font-family='sans-serif' font-size='48' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EFR%3C/text%3E%3C/svg%3E"} alt={profile?.name || "Profile"} className="w-full h-full rounded-full object-cover" />
                 </div>
                 <div className="absolute -top-4 -right-4 w-20 h-20 bg-primary-100 dark:bg-primary-900/30 rounded-2xl flex items-center justify-center text-3xl animate-float">💻</div>
                 <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-2xl animate-float" style={{ animationDelay: "1s" }}>🚀</div>

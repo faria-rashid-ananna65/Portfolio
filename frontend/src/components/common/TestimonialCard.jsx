@@ -23,7 +23,7 @@ const TestimonialCard = ({ testimonial, index }) => {
       </p>
       <div className="flex items-center gap-4">
         <img
-          src={testimonial.photo || "https://via.placeholder.com/50"}
+          src={testimonial.photo || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50'%3E%3Crect fill='%236366f1' width='50' height='50' rx='25'/%3E%3Ctext fill='%23fff' font-family='sans-serif' font-size='18' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3E%3F%3C/text%3E%3C/svg%3E"}
           alt={testimonial.name}
           className="w-12 h-12 rounded-full object-cover"
         />

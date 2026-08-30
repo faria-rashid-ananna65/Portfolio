@@ -11,7 +11,7 @@ const BlogCard = ({ blog, index }) => {
     >
       <div className="relative overflow-hidden h-48">
         <img
-          src={blog.coverImage || "https://via.placeholder.com/600x300"}
+          src={blog.coverImage || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Crect fill='%23e2e8f0' width='600' height='300'/%3E%3Ctext fill='%2394a3b8' font-family='sans-serif' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EBlog%3C/text%3E%3C/svg%3E"}
           alt={blog.title}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />

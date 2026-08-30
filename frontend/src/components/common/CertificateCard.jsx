@@ -11,7 +11,7 @@ const CertificateCard = ({ certificate, index }) => {
     >
       <div className="relative overflow-hidden h-48">
         <img
-          src={certificate.image || "https://via.placeholder.com/600x400"}
+          src={certificate.image || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='%23e2e8f0' width='600' height='400'/%3E%3Ctext fill='%2394a3b8' font-family='sans-serif' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3ECertificate%3C/text%3E%3C/svg%3E"}
           alt={certificate.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
