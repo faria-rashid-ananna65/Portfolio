@@ -38,10 +38,13 @@ connectDB().then(async () => {
       console.log("Admin account created automatically");
     }
 
-    console.log("Seeding portfolio data...");
-    const { default: seedData } = await import("./seeds/seedData.js");
-    await seedData();
-    console.log("Portfolio data seeded!");
+    const profileExists = await Profile.findOne();
+    if (!profileExists) {
+      console.log("No profile found, seeding default data...");
+      const { default: seedData } = await import("./seeds/seedData.js");
+      await seedData();
+      console.log("Default data seeded!");
+    }
   } catch (err) {
     console.error("Auto-seed error:", err.message);
   }
@@ -101,6 +104,16 @@ app.use("/api/dashboard", dashboardRoutes);
 
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: Date.now() });
+});
+
+app.get("/api/seed", async (req, res) => {
+  try {
+    const { default: seedData } = await import("./seeds/seedData.js");
+    await seedData();
+    res.json({ success: true, message: "Data seeded successfully" });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
 });
 
 if (process.env.NODE_ENV === "production") {
