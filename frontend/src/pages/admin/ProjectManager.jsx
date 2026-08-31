@@ -45,10 +45,23 @@ const ProjectManager = () => {
     fetchProjects();
   }, []);
 
+  const normalizeArray = (val) => {
+    if (Array.isArray(val)) return val;
+    if (typeof val === "string") return val.split("\n").filter(Boolean);
+    return [];
+  };
+
   const openModal = (project = null) => {
     if (project) {
       setEditProject(project);
-      setForm(project);
+      setForm({
+        ...project,
+        features: normalizeArray(project.features),
+        challenges: normalizeArray(project.challenges),
+        learningOutcomes: normalizeArray(project.learningOutcomes),
+        images: normalizeArray(project.images),
+        techStack: normalizeArray(project.techStack),
+      });
     } else {
       setEditProject(null);
       setForm({
