@@ -189,9 +189,9 @@ const ProjectManager = () => {
                 </select>
                 <input type="url" placeholder="Live Link" value={form.liveLink} onChange={(e) => setForm({ ...form, liveLink: e.target.value })} className="input-field" />
                 <input type="url" placeholder="GitHub Link" value={form.githubLink} onChange={(e) => setForm({ ...form, githubLink: e.target.value })} className="input-field" />
-                <textarea placeholder="Features (one per line)" value={form.features?.join("\n")} onChange={(e) => setForm({ ...form, features: e.target.value })} className="textarea-field" rows={3} />
-                <textarea placeholder="Challenges (one per line)" value={form.challenges?.join("\n")} onChange={(e) => setForm({ ...form, challenges: e.target.value })} className="textarea-field" rows={3} />
-                <textarea placeholder="Learning Outcomes (one per line)" value={form.learningOutcomes?.join("\n")} onChange={(e) => setForm({ ...form, learningOutcomes: e.target.value })} className="textarea-field" rows={3} />
+                <textarea placeholder="Features (one per line)" value={Array.isArray(form.features) ? form.features.join("\n") : form.features || ""} onChange={(e) => setForm({ ...form, features: e.target.value.split("\n") })} className="textarea-field" rows={3} />
+                <textarea placeholder="Challenges (one per line)" value={Array.isArray(form.challenges) ? form.challenges.join("\n") : form.challenges || ""} onChange={(e) => setForm({ ...form, challenges: e.target.value.split("\n") })} className="textarea-field" rows={3} />
+                <textarea placeholder="Learning Outcomes (one per line)" value={Array.isArray(form.learningOutcomes) ? form.learningOutcomes.join("\n") : form.learningOutcomes || ""} onChange={(e) => setForm({ ...form, learningOutcomes: e.target.value.split("\n") })} className="textarea-field" rows={3} />
                 <label className="flex items-center gap-2">
                   <input type="checkbox" checked={form.featured} onChange={(e) => setForm({ ...form, featured: e.target.checked })} className="rounded" />
                   <span>Featured Project</span>
