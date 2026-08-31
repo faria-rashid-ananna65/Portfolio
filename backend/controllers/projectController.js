@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Project from "../models/Project.js";
 
 export const getProjects = async (req, res) => {
@@ -27,9 +28,13 @@ export const getProjects = async (req, res) => {
 
 export const getProject = async (req, res) => {
   try {
-    const project = await Project.findOne({
-      $or: [{ slug: req.params.id }, { _id: req.params.id }],
-    });
+    let project;
+    if (mongoose.Types.ObjectId.isValid(req.params.id)) {
+      project = await Project.findById(req.params.id);
+    }
+    if (!project) {
+      project = await Project.findOne({ slug: req.params.id });
+    }
     if (!project) {
       return res
         .status(404)

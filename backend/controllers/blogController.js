@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Blog from "../models/Blog.js";
 
 export const getBlogs = async (req, res) => {
@@ -23,9 +24,13 @@ export const getBlogs = async (req, res) => {
 
 export const getBlog = async (req, res) => {
   try {
-    const blog = await Blog.findOne({
-      $or: [{ slug: req.params.slug }, { _id: req.params.slug }],
-    });
+    let blog;
+    if (mongoose.Types.ObjectId.isValid(req.params.slug)) {
+      blog = await Blog.findById(req.params.slug);
+    }
+    if (!blog) {
+      blog = await Blog.findOne({ slug: req.params.slug });
+    }
     if (!blog) {
       return res
         .status(404)
